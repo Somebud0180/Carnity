@@ -3,13 +3,13 @@
 [ext_resource type="Texture2D" uid="uid://bfrrs1prxkubt" path="res://assets/sprites/Muncho_Tileset.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://c1ynvn8y4o0ao" path="res://scripts/player.gd" id="1_g2els"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_njov2"]
-atlas = ExtResource("1_3vyb7")
-region = Rect2(0, 0, 100, 100)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_2au82"]
 atlas = ExtResource("1_3vyb7")
 region = Rect2(100, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_njov2"]
+atlas = ExtResource("1_3vyb7")
+region = Rect2(0, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8tn2x"]
 atlas = ExtResource("1_3vyb7")
@@ -31,10 +31,10 @@ region = Rect2(100, 200, 100, 100)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_njov2")
+"texture": SubResource("AtlasTexture_2au82")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2au82")
+"texture": SubResource("AtlasTexture_njov2")
 }],
 "loop": true,
 "name": &"default",
@@ -72,7 +72,6 @@ script = ExtResource("1_g2els")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_qs82m")
-animation = &"walk_left"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_c4vo5")

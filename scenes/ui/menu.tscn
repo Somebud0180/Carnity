@@ -1,0 +1,570 @@
+[gd_scene load_steps=18 format=3 uid="uid://iqh3m7mpsjep"]
+
+[ext_resource type="Script" uid="uid://ba5gnt34l2hr2" path="res://scripts/ui/menu.gd" id="1_c2n5p"]
+[ext_resource type="Theme" uid="uid://nqkc4gqu2ifp" path="res://assets/ui/main_menu.tres" id="1_w6y0u"]
+[ext_resource type="Texture2D" uid="uid://d3c6s13dgkj4y" path="res://assets/ui/ui_border.png" id="1_wedc3"]
+[ext_resource type="Texture2D" uid="uid://d2x5cs0yjhwb3" path="res://assets/ui/title_art.png" id="2_c2n5p"]
+[ext_resource type="Script" uid="uid://ivl6dmfvyqbt" path="res://scripts/ui/play.gd" id="5_cghgw"]
+[ext_resource type="Script" uid="uid://dncbqnhep3obl" path="res://scripts/ui/level_button.gd" id="5_cx0sj"]
+[ext_resource type="Script" uid="uid://t1v4n1s2om5r" path="res://scripts/ui/back_button.gd" id="6_1pxh0"]
+[ext_resource type="PackedScene" uid="uid://bhpdcw5xsre61" path="res://scenes/levels/level1.tscn" id="6_ntye7"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_cx0sj"]
+font_size = 32
+font_color = Color(0.14453125, 0.14453125, 0.14453125, 1)
+outline_size = 12
+outline_color = Color(1, 0.784157, 0.578125, 1)
+
+[sub_resource type="Animation" id="Animation_cghgw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Menu/MainMenu:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(64, 64)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Menu/MainMenu:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Menu/MainMenu:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Menu/Level Picker:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Menu/Level Picker:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Menu/Level Picker:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(64, 64)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Menu/Level Picker:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Menu/MainMenu:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Menu:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_288ov"]
+resource_name = "hide_level_picker"
+length = 0.4
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Menu/Level Picker:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(0.5, 0.5),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Menu/Level Picker:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.20000002, 0.4),
+"transitions": PackedFloat32Array(2, 0.5),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Menu/Level Picker:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.35),
+"transitions": PackedFloat32Array(2, 0.5),
+"update": 0,
+"values": [Vector2(64, 64), Vector2(64, 720)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Menu/Level Picker:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(2, 2),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 1.1)]
+}
+
+[sub_resource type="Animation" id="Animation_tub5d"]
+resource_name = "hide_main"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Menu/MainMenu:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.09999999),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(64, 64), Vector2(64, 64)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Menu/MainMenu:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.09999999),
+"transitions": PackedFloat32Array(2, 0.5),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.95, 0.95)]
+}
+
+[sub_resource type="Animation" id="Animation_1pxh0"]
+resource_name = "hide_main_invisible"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Menu/MainMenu:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.09999999),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(64, 64), Vector2(64, 64)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Menu/MainMenu:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.09999999),
+"transitions": PackedFloat32Array(2, 0.5),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.95, 0.95)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Menu/MainMenu:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.033333335, 0.1),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Menu:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_e11en"]
+resource_name = "show_level_picker"
+length = 0.4
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Menu/Level Picker:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0.5),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Menu/Level Picker:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.20000002),
+"transitions": PackedFloat32Array(0.5, 0.5),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Menu/Level Picker:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.05, 0.4),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(64, 720), Vector2(64, 64)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Menu/Level Picker:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.25, 0.4),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(1.1, 1.1), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ntye7"]
+resource_name = "show_main"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Menu/MainMenu:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(64, 64), Vector2(64, 64)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Menu/MainMenu:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(2, 2),
+"update": 0,
+"values": [Vector2(0.95, 0.95), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Menu/MainMenu:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_dnmb1"]
+resource_name = "show_main_invisible"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Menu/MainMenu:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(64, 64), Vector2(64, 64)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Menu/MainMenu:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(2, 2),
+"update": 0,
+"values": [Vector2(0.95, 0.95), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Menu/MainMenu:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Menu:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e11en"]
+_data = {
+&"RESET": SubResource("Animation_cghgw"),
+&"hide_level_picker": SubResource("Animation_288ov"),
+&"hide_main": SubResource("Animation_tub5d"),
+&"hide_main_invisible": SubResource("Animation_1pxh0"),
+&"show_level_picker": SubResource("Animation_e11en"),
+&"show_main": SubResource("Animation_ntye7"),
+&"show_main_invisible": SubResource("Animation_dnmb1")
+}
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(640, 360)
+theme = ExtResource("1_w6y0u")
+script = ExtResource("1_c2n5p")
+
+[node name="Menu" type="CanvasLayer" parent="."]
+
+[node name="MainMenu" type="AspectRatioContainer" parent="Menu"]
+custom_minimum_size = Vector2(512, 256)
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 64.0
+offset_top = 64.0
+offset_right = -64.0
+offset_bottom = -64.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(576, 296)
+ratio = 1.8
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Menu/MainMenu"]
+layout_mode = 2
+texture = ExtResource("1_wedc3")
+region_rect = Rect2(0, 0, 192, 192)
+patch_margin_left = 30
+patch_margin_top = 30
+patch_margin_right = 30
+patch_margin_bottom = 54
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/MainMenu/NinePatchRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = 32.0
+offset_right = -32.0
+offset_bottom = -64.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Menu/MainMenu/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_c2n5p")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="Play" type="Button" parent="Menu/MainMenu/NinePatchRect/VBoxContainer"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+text = "Play"
+script = ExtResource("5_cghgw")
+
+[node name="Level Picker" type="AspectRatioContainer" parent="Menu"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(512, 256)
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 64.0
+offset_top = 64.0
+offset_right = -64.0
+offset_bottom = -64.00098
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(576, 296)
+ratio = 1.8
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Menu/Level Picker"]
+layout_mode = 2
+texture = ExtResource("1_wedc3")
+region_rect = Rect2(0, 0, 192, 192)
+patch_margin_left = 30
+patch_margin_top = 30
+patch_margin_right = 30
+patch_margin_bottom = 54
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/Level Picker/NinePatchRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = 32.0
+offset_right = -32.0
+offset_bottom = -64.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title Bar" type="HBoxContainer" parent="Menu/Level Picker/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="Menu/Level Picker/NinePatchRect/VBoxContainer/Title Bar"]
+custom_minimum_size = Vector2(64, 48)
+layout_mode = 2
+text = "Back"
+script = ExtResource("6_1pxh0")
+current_menu = "level_picker"
+
+[node name="Label" type="Label" parent="Menu/Level Picker/NinePatchRect/VBoxContainer/Title Bar"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Level Select"
+label_settings = SubResource("LabelSettings_cx0sj")
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Menu/Level Picker/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="Menu/Level Picker/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+columns = 5
+
+[node name="Level1" type="Button" parent="Menu/Level Picker/NinePatchRect/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+text = "Level 1"
+script = ExtResource("5_cx0sj")
+level = ExtResource("6_ntye7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_e11en")
+}
+
+[connection signal="pressed" from="Menu/MainMenu/NinePatchRect/VBoxContainer/Play" to="Menu/MainMenu/NinePatchRect/VBoxContainer/Play" method="_on_pressed"]
+[connection signal="pressed" from="Menu/Level Picker/NinePatchRect/VBoxContainer/Title Bar/BackButton" to="Menu/Level Picker/NinePatchRect/VBoxContainer/Title Bar/BackButton" method="_on_pressed"]
+[connection signal="pressed" from="Menu/Level Picker/NinePatchRect/VBoxContainer/GridContainer/Level1" to="Menu/Level Picker/NinePatchRect/VBoxContainer/GridContainer/Level1" method="_on_pressed"]

@@ -1,0 +1,37 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://nqkc4gqu2ifp"]
+
+[ext_resource type="StyleBox" uid="uid://crfrld2jfohha" path="res://assets/ui/themes/button_hover.tres" id="1_do7fq"]
+[ext_resource type="StyleBox" uid="uid://b2qtb3pfv6222" path="res://assets/ui/themes/button_normal.tres" id="2_dtfpf"]
+
+[sub_resource type="SystemFont" id="SystemFont_sukl5"]
+font_names = PackedStringArray("Arial")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sb23t"]
+bg_color = Color(0.9375, 0.6386719, 0.43945313, 1)
+border_width_left = 2
+border_width_top = 8
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.49019608, 0.32941177, 0.22352941, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_top = 2.0
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_2u68w"]
+color = Color(0.8745098, 0.44313726, 0.15294118, 1)
+thickness = 4
+
+[resource]
+Button/colors/font_color = Color(0.2509804, 0.14117648, 0, 1)
+Button/colors/font_focus_color = Color(0.375, 0.2109375, 0, 1)
+Button/colors/font_hover_color = Color(0.3764706, 0.21176471, 0, 1)
+Button/colors/font_pressed_color = Color(0.28235295, 0.16470589, 0.023529412, 1)
+Button/font_sizes/font_size = 32
+Button/fonts/font = SubResource("SystemFont_sukl5")
+Button/styles/hover = ExtResource("1_do7fq")
+Button/styles/normal = ExtResource("2_dtfpf")
+Button/styles/pressed = SubResource("StyleBoxFlat_sb23t")
+HSeparator/styles/separator = SubResource("StyleBoxLine_2u68w")
+VBoxContainer/constants/separation = 8
