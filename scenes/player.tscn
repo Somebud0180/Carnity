@@ -1,51 +1,71 @@
-[gd_scene load_steps=11 format=3 uid="uid://c10mia3vj7ji"]
+[gd_scene load_steps=14 format=3 uid="uid://c10mia3vj7ji"]
 
 [ext_resource type="Texture2D" uid="uid://bfrrs1prxkubt" path="res://assets/sprites/Muncho_Tileset.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://c1ynvn8y4o0ao" path="res://scripts/player.gd" id="1_g2els"]
+[ext_resource type="Theme" uid="uid://dnnv6k8dju1tu" path="res://assets/ui/themes/game.tres" id="3_qhqgy"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2au82"]
-atlas = ExtResource("1_3vyb7")
-region = Rect2(100, 100, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_njov2"]
-atlas = ExtResource("1_3vyb7")
-region = Rect2(0, 0, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8tn2x"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_qhqgy"]
 atlas = ExtResource("1_3vyb7")
 region = Rect2(100, 0, 100, 100)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_aq4fw"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqkch"]
+atlas = ExtResource("1_3vyb7")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qlg0r"]
+atlas = ExtResource("1_3vyb7")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tuyoq"]
+atlas = ExtResource("1_3vyb7")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjrip"]
 atlas = ExtResource("1_3vyb7")
 region = Rect2(0, 100, 100, 100)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ivycn"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_smehm"]
 atlas = ExtResource("1_3vyb7")
-region = Rect2(0, 200, 100, 100)
+region = Rect2(100, 100, 100, 100)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_q1uvj"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ur7pv"]
 atlas = ExtResource("1_3vyb7")
-region = Rect2(100, 200, 100, 100)
+region = Rect2(200, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y4r1p"]
+atlas = ExtResource("1_3vyb7")
+region = Rect2(300, 100, 100, 100)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qs82m"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2au82")
+"texture": SubResource("AtlasTexture_qhqgy")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_njov2")
+"texture": SubResource("AtlasTexture_dqkch")
 }],
 "loop": true,
-"name": &"default",
+"name": &"leap",
 "speed": 0.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8tn2x")
+"texture": SubResource("AtlasTexture_qlg0r")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_aq4fw")
+"texture": SubResource("AtlasTexture_tuyoq")
+}],
+"loop": true,
+"name": &"stand",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fjrip")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_smehm")
 }],
 "loop": true,
 "name": &"walk_left",
@@ -53,10 +73,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ivycn")
+"texture": SubResource("AtlasTexture_ur7pv")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_q1uvj")
+"texture": SubResource("AtlasTexture_y4r1p")
 }],
 "loop": true,
 "name": &"walk_right",
@@ -64,7 +84,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c4vo5"]
-size = Vector2(96, 80)
+size = Vector2(96, 84)
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 3
@@ -72,10 +92,29 @@ script = ExtResource("1_g2els")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_qs82m")
+animation = &"stand"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_c4vo5")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.5, 1.5)
 position_smoothing_enabled = true
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+z_index = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -60.0
+offset_top = 50.0
+offset_right = 60.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("3_qhqgy")
+max_value = 10.0
+show_percentage = false
